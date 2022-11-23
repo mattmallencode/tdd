@@ -30,9 +30,9 @@ class ColourTest {
     }
 
     @Test
-    void testHexInputTooShortException() {
+    void testHexNot6CharsException() {
         Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            Colour colourWithRedLessThanZero = new Colour("FF");
+            Colour hexColourNot6Chars = new Colour("FF");
         });
     }
 }
