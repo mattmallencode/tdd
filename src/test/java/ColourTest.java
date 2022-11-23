@@ -10,7 +10,7 @@ class ColourTest {
     }
 
     @Test
-    void testParamRangeException() {
+    void testParamUpperRangeException() {
         Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             Colour colour = new Colour(1.1F, 1.0F, 1.0F);
         });
