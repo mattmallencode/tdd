@@ -83,5 +83,9 @@ class ColourTest {
             Colour colour = new Colour(1.0F, 1.0F, 1.0F);
             colour.setGreen(1.1F);
         });
+        Exception floatTooLargeExceptionBlue = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Colour colour = new Colour(1.0F, 1.0F, 1.0F);
+            colour.setBlue(1.1F);
+        });
     }
 }
