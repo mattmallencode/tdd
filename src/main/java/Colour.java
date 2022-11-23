@@ -21,4 +21,8 @@ public class Colour {
             throw new IllegalArgumentException("RGB params must all be equal to or greater than 0.F");
         }
     }
+
+    public Colour(String rgbInHex) {
+
+    }
 }
