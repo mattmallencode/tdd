@@ -23,8 +23,15 @@ public class Colour {
     }
 
     public Colour(String rgbInHex) {
-        if (rgbInHex.length() != 6) {
+        int n = rgbInHex.length();
+        if (n != 6) {
             throw new IllegalArgumentException("RGB param in hex must be 6 chars long!");
+        }
+        for (int i = 0; i < n; i++) {
+            char character = rgbInHex.charAt(i);
+            if (character < '0') {
+                throw new IllegalArgumentException("That is not valid hex! Hex characters are 0-9 (inclusive) A-F (UPPER inclusive).");
+            }
         }
     }
 }

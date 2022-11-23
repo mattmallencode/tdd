@@ -40,8 +40,8 @@ class ColourTest {
     @Test
     void testInvalidHexException() {
         Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            Colour hexColourNot6Chars = new Colour("/");
+            Colour hexColourNot6Chars = new Colour("//////");
         });
-        Assertions.assertEquals("That is not valid hex! Hex characters are 0-9 (inclusive) A-F (UPPER inclusive)", exception.getMessage());
+        Assertions.assertEquals("That is not valid hex! Hex characters are 0-9 (inclusive) A-F (UPPER inclusive).", exception.getMessage());
     }
 }
