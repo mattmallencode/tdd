@@ -24,7 +24,7 @@ public class Colour {
 
     public Colour(String rgbInHex) {
         if (rgbInHex.length() != 6) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("RGB param in hex must be 6 chars long!");
         }
     }
 }
