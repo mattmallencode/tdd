@@ -10,7 +10,7 @@ class ColourTest {
      * Test method that checks that an IllegalArgumentException is raised when any of the rgb params for the 3 param constructor are greater than 1.0F.
      */
     @Test
-    void test3ParamUpperRangeException() {
+    void testUpperFloatValidation() {
         Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             Colour colourWithRedGreaterThanOne = new Colour(1.1F, 1.0F, 1.0F);
         });
@@ -21,7 +21,7 @@ class ColourTest {
      * Test method that checks that an IllegalArgumentException is raised when any of the rgb params for the 3 param constructor are less than 1.0F.
      */
     @Test
-    void test3ParamLowerRangeException() {
+    void testLowerFloatValidation() {
         Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
            Colour colourWithRedLessThanZero = new Colour(-0.1F, 0.0F, 0.0F);
         });
@@ -29,7 +29,7 @@ class ColourTest {
     }
 
     @Test
-    void testHexNot6CharsException() {
+    void testHexLengthValidation() {
         Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             Colour hexColourNot6Chars = new Colour("FF");
         });
@@ -37,14 +37,15 @@ class ColourTest {
     }
 
     @Test
-    void testInvalidHexException() {
-        List<String> exceptionTestCases = Arrays.asList("//////", "::::::");
-        for (int i = 0; i < exceptionTestCases.size(); i++){
-            final String testCase = exceptionTestCases.get(i);
+    void testHexValidation() {
+        List<String> invalidTestCases = Arrays.asList("//////", "::::::", "@@@@@@", "[[[[[[");
+        for (int i = 0; i < invalidTestCases.size(); i++){
+            final String testCase = invalidTestCases.get(i);
             Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
                 Colour hexColourNot6Chars = new Colour(testCase);
             });
             Assertions.assertEquals("That is not valid hex! Hex characters are 0-9 (inclusive) A-F (UPPER inclusive).", exception.getMessage());
         }
+        List<String> validTestCases = Arrays.asList("//////", "::::::", "@@@@@@", "[[[[[[");
     }
 }
