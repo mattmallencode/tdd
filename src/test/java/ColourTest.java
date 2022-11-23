@@ -28,4 +28,11 @@ class ColourTest {
     void testHexColourConstructor() {
         Colour colour = new Colour("FFFFFF");
     }
+
+    @Test
+    void testHexInputTooShortException() {
+        Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Colour colourWithRedLessThanZero = new Colour("FF");
+        });
+    }
 }
