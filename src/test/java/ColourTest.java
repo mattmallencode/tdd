@@ -38,6 +38,15 @@ class ColourTest {
 
     @Test
     void testHexCharacterValidation() {
+        List<String> validTestCases = Arrays.asList("63A80E", "ACA340", "4BD35C");
+        for (int i = 0; i < validTestCases.size(); i++){
+            final String testCase = validTestCases.get(i);
+            Assertions.assertDoesNotThrow(() -> new Colour(testCase));
+        }
+    }
+
+    @Test
+    void testHexCharacterInvalidation() {
         List<String> invalidTestCases = Arrays.asList("//////", "::::::", "@@@@@@", "[[[[[[", "aaaaaa");
         for (int i = 0; i < invalidTestCases.size(); i++){
             final String testCase = invalidTestCases.get(i);
@@ -45,11 +54,6 @@ class ColourTest {
                 Colour hexColourNot6Chars = new Colour(testCase);
             });
             Assertions.assertEquals("That is not valid hex! Hex characters are 0-9 (inclusive) A-F (UPPER inclusive).", exception.getMessage());
-        }
-        List<String> validTestCases = Arrays.asList("63A80E", "ACA340", "4BD35C");
-        for (int i = 0; i < validTestCases.size(); i++){
-            final String testCase = validTestCases.get(i);
-            Assertions.assertDoesNotThrow(() -> new Colour(testCase));
         }
     }
 }
