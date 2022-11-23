@@ -60,7 +60,7 @@ public class Colour {
     }
 
     public boolean validateRGBBeforeSet(float rgbValue) {
-        if (rgbValue > 1.0F) {
+        if (rgbValue > 1.0F || rgbValue < 0.0F) {
             return false;
         }
         return true;
