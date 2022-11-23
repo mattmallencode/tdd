@@ -28,6 +28,9 @@ class ColourTest {
         Assertions.assertEquals("RGB params must all be equal to or greater than 0.F", exception.getMessage());
     }
 
+    /**
+     * Test method that checks that if a string passed to the single param constructor isn't of length 6, an exception is raised.
+     */
     @Test
     void testHexLengthValidation() {
         Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
@@ -36,6 +39,10 @@ class ColourTest {
         Assertions.assertEquals("RGB param in hex must be 6 chars long!", exception.getMessage());
     }
 
+
+    /**
+     * Test method that checks that if valid hex is passed to the single param constructor, no exception is raised.
+     */
     @Test
     void testHexCharacterValidation() {
         List<String> validTestCases = Arrays.asList("63A80E", "ACA340", "4BD35C");
@@ -45,6 +52,9 @@ class ColourTest {
         }
     }
 
+    /**
+     * Test method that checks if invalid hex is passed to the single param constructor, an exception is raised.
+     */
     @Test
     void testHexCharacterInvalidation() {
         List<String> invalidTestCases = Arrays.asList("//////", "::::::", "@@@@@@", "[[[[[[", "aaaaaa");
