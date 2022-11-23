@@ -70,6 +70,6 @@ class ColourTest {
         Colour firstColour = new Colour(1.0F, 1.0F, 1.0F);
         Colour secondColour = new Colour(1.0F, 1.0F, 1.0F);
         Assertions.assertEquals(firstColour, secondColour);
-        firstColour.red = 0.8F;
+        firstColour.setRed(0.8F);
     }
 }

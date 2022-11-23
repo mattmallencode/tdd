@@ -26,6 +26,30 @@ public class Colour {
         validateRGBHex(rgbInHex);
     }
 
+    public float getRed() {
+        return this.red;
+    }
+
+    public float getGreen() {
+        return this.green;
+    }
+
+    public float getBlue() {
+        return this.blue;
+    }
+
+    public void setRed(float r) {
+        this.red = r;
+    }
+
+    public void setGreen(float g) {
+        this.green = g;
+    }
+
+    public void setBlue(float b) {
+        this.blue = b;
+    }
+
     /**
      * Method that throws an exception if a String is not valid 24-bit RGB represented in hex.
      *
