@@ -64,4 +64,11 @@ class ColourTest {
             Assertions.assertEquals("That is not valid hex! Hex characters are 0-9 (inclusive) A-F (UPPER inclusive).", exception.getMessage());
         }
     }
+
+    @Test
+    void testColourComparison() {
+        Colour firstColour = new Colour(1.0F, 1.0F, 1.0F);
+        Colour secondColour = new Colour(1.0F, 1.0F, 1.0F);
+        Assertions.assertEquals(firstColour, secondColour);
+    }
 }
