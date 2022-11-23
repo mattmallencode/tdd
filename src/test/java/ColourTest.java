@@ -23,4 +23,9 @@ class ColourTest {
         });
         Assertions.assertEquals("RGB params must all be equal to or greater than 0.F", exception.getMessage());
     }
+
+    @Test
+    void testHexColourConstructor() {
+        Colour colour = new Colour("FFFFFF");
+    }
 }
