@@ -46,6 +46,9 @@ public class Colour {
     }
 
     public void setGreen(float g) {
+        if (g > 1.0) {
+            throw  new IllegalArgumentException();
+        }
         this.green = g;
     }
 
