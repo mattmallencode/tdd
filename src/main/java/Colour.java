@@ -42,4 +42,10 @@ public class Colour {
             }
         }
     }
+
+    @Override
+    public boolean equals(Object otherObject) {
+        Colour otherColour = (Colour) otherObject;
+        return ((this.red == otherColour.red) && (this.green == otherColour.green) && (this.blue == otherColour.blue));
+    }
 }
