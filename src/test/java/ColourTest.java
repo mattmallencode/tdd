@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -6,5 +7,12 @@ class ColourTest {
     @Test
     void testColourConstructor() {
         Colour colour = new Colour(1.0F, 1.0F, 1.0F);
+    }
+
+    @Test
+    void testParamRangeException() {
+        Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Colour colour = new Colour(1.1F, 1.0F, 1.0F);
+        });
     }
 }
