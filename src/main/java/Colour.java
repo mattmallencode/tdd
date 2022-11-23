@@ -12,7 +12,7 @@ public class Colour {
             throw new IllegalArgumentException("RGB params must all be equal to or less than 1.0F");
         }
         if (red < 0.F || green < 0.F || blue < 0.F) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("RGB params must all be equal to or greater than 0.F");
         }
     }
 }
