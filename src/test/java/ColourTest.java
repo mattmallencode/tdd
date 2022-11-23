@@ -37,7 +37,7 @@ class ColourTest {
     }
 
     @Test
-    void testHexValidation() {
+    void testHexCharacterValidation() {
         List<String> invalidTestCases = Arrays.asList("//////", "::::::", "@@@@@@", "[[[[[[");
         for (int i = 0; i < invalidTestCases.size(); i++){
             final String testCase = invalidTestCases.get(i);
@@ -46,6 +46,5 @@ class ColourTest {
             });
             Assertions.assertEquals("That is not valid hex! Hex characters are 0-9 (inclusive) A-F (UPPER inclusive).", exception.getMessage());
         }
-        List<String> validTestCases = Arrays.asList("//////", "::::::", "@@@@@@", "[[[[[[");
     }
 }
