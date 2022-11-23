@@ -29,7 +29,7 @@ public class Colour {
         }
         for (int i = 0; i < n; i++) {
             char character = rgbInHex.charAt(i);
-            if (character < '0') {
+            if (character < '0' || character > '9') {
                 throw new IllegalArgumentException("That is not valid hex! Hex characters are 0-9 (inclusive) A-F (UPPER inclusive).");
             }
         }
