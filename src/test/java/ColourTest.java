@@ -9,10 +9,10 @@ class ColourTest {
      */
     @Test
     void testUpperFloatValidation() {
-        Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+        Exception floatTooLargeException = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             Colour colourWithRedGreaterThanOne = new Colour(1.1F, 1.0F, 1.0F);
         });
-        Assertions.assertEquals("RGB params must all be equal to or less than 1.0F", exception.getMessage());
+        Assertions.assertEquals("RGB params must all be equal to or less than 1.0F", floatTooLargeException.getMessage());
     }
 
     /**
@@ -20,10 +20,10 @@ class ColourTest {
      */
     @Test
     void testLowerFloatValidation() {
-        Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+        Exception tooLowFloatException = Assertions.assertThrows(IllegalArgumentException.class, () -> {
            Colour colourWithRedLessThanZero = new Colour(-0.1F, 0.0F, 0.0F);
         });
-        Assertions.assertEquals("RGB params must all be equal to or greater than 0.F", exception.getMessage());
+        Assertions.assertEquals("RGB params must all be equal to or greater than 0.F", tooLowFloatException.getMessage());
     }
 
     /**
@@ -31,10 +31,10 @@ class ColourTest {
      */
     @Test
     void testHexLengthValidation() {
-        Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+        Exception invalidHexLengthException = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             Colour hexColourNot6Chars = new Colour("FF");
         });
-        Assertions.assertEquals("RGB param in hex must be 6 chars long!", exception.getMessage());
+        Assertions.assertEquals("RGB param in hex must be 6 chars long!", invalidHexLengthException.getMessage());
     }
 
 
@@ -58,10 +58,10 @@ class ColourTest {
         List<String> invalidTestCases = Arrays.asList("//////", "::::::", "@@@@@@", "[[[[[[", "aaaaaa");
         for (int i = 0; i < invalidTestCases.size(); i++){
             final String testCase = invalidTestCases.get(i);
-            Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-                Colour hexColourNot6Chars = new Colour(testCase);
+            Exception invalidHexCharacterException = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+                Colour invalidRGBHex = new Colour(testCase);
             });
-            Assertions.assertEquals("That is not valid hex! Hex characters are 0-9 (inclusive) A-F (UPPER inclusive).", exception.getMessage());
+            Assertions.assertEquals("That is not valid hex! Hex characters are 0-9 (inclusive) A-F (UPPER inclusive).", invalidHexCharacterException.getMessage());
         }
     }
 
@@ -75,7 +75,7 @@ class ColourTest {
 
     @Test
     void testSettersUpperLimit() {
-        Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+        Exception floatTooLargeException = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             Colour colour = new Colour(1.0F, 1.0F, 1.0F);
             colour.setRed(1.1F);
         });
