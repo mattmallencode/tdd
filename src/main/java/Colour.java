@@ -9,7 +9,7 @@ public class Colour {
         this.green = green;
         this.blue = blue;
         if (red > 1.0F || green > 1.0F || blue > 1.0F) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("RGB params must all be below 1.0F");
         }
     }
 }
