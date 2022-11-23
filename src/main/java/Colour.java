@@ -32,7 +32,7 @@ public class Colour {
     public void validateHex(String rgbInHex) {
         for (int i = 0; i < rgbInHex.length(); i++) {
             char character = rgbInHex.charAt(i);
-            if (character < '0' || character > '9') {
+            if ((character < '0' || character > '9') && (character < 'A' || character > 'F')) {
                 throw new IllegalArgumentException("That is not valid hex! Hex characters are 0-9 (inclusive) A-F (UPPER inclusive).");
             }
         }
