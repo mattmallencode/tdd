@@ -23,13 +23,18 @@ public class Colour {
     }
 
     public Colour(String rgbInHex) {
+        validateRGBHex(rgbInHex);
+    }
+
+    /**
+     * Method that throws an exception if a String is not valid 24-bit RGB represented in hex.
+     *
+     * @param rgbInHex - a string of 6 hex characters representing RGB values.
+     */
+    public void validateRGBHex(String rgbInHex) {
         if (rgbInHex.length() != 6) {
             throw new IllegalArgumentException("RGB param in hex must be 6 chars long!");
         }
-        validateHex(rgbInHex);
-    }
-
-    public void validateHex(String rgbInHex) {
         for (int i = 0; i < rgbInHex.length(); i++) {
             char character = rgbInHex.charAt(i);
             if ((character < '0' || character > '9') && (character < 'A' || character > 'F')) {
