@@ -27,6 +27,10 @@ public class Colour {
 
     public Colour(String rgbInHex) {
         validateRGBHex(rgbInHex);
+        parseRGBHexString(rgbInHex);
+    }
+
+    public void parseRGBHexString(String rgbInHex) {
         List<String> rgbValues = Arrays.asList(rgbInHex.split("(?<=\\G.{2})")); // Borrowed from: https://stackoverflow.com/questions/4788596/split-string-into-several-two-character-strings
         Long redInteger = Long.parseLong(rgbValues.get(0), 16);
         Long greenInteger = Long.parseLong(rgbValues.get(1), 16);
@@ -34,8 +38,6 @@ public class Colour {
         this.red = (float) (redInteger.intValue()) / 255.0F;
         this.green = (float) (greenInteger.intValue() / 255.0F);
         this.blue = (float) (blueInteger.intValue()) / 255.0F;
-
-
     }
 
     public float getRed() {
