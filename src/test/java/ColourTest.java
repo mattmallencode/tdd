@@ -22,5 +22,6 @@ class ColourTest {
         Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
            Colour colour = new Colour(-0.1F, 0.0F, 0.0F);
         });
+        Assertions.assertEquals("RGB params must all be equal to or greater than 0.F", exception.getMessage());
     }
 }
