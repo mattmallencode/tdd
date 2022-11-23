@@ -1,8 +1,8 @@
 public class Colour {
 
-    float red;
-    float green;
-    float blue;
+    private float red;
+    private float green;
+    private float blue;
 
     /**
      * Constructor for a representation of colour.
@@ -23,11 +23,14 @@ public class Colour {
     }
 
     public Colour(String rgbInHex) {
-        int n = rgbInHex.length();
-        if (n != 6) {
+        if (rgbInHex.length() != 6) {
             throw new IllegalArgumentException("RGB param in hex must be 6 chars long!");
         }
-        for (int i = 0; i < n; i++) {
+        validateHex(rgbInHex);
+    }
+
+    public void validateHex(String rgbInHex) {
+        for (int i = 0; i < rgbInHex.length(); i++) {
             char character = rgbInHex.charAt(i);
             if (character < '0' || character > '9') {
                 throw new IllegalArgumentException("That is not valid hex! Hex characters are 0-9 (inclusive) A-F (UPPER inclusive).");
