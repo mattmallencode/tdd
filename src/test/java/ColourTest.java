@@ -2,6 +2,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class ColourTest {
+    /**
+     * Test method that checks that an IllegalArgumentException is raised when any of the rgb params are greater than 1.0F.
+     */
     @Test
     void testParamUpperRangeException() {
         Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
@@ -10,6 +13,9 @@ class ColourTest {
         Assertions.assertEquals("RGB params must all be below 1.0F", exception.getMessage());
     }
 
+    /**
+     * Test method that checks that an IllegalArgumentException is raised when any of the rgb params are less than 1.0F.
+     */
     @Test
     void testParamLowerRangeException() {
         Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
