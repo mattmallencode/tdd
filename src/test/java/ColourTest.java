@@ -72,4 +72,12 @@ class ColourTest {
         Assertions.assertEquals(firstColour, secondColour);
         firstColour.setRed(0.8F);
     }
+
+    @Test
+    void testSettersUpperLimit() {
+        Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Colour colour = new Colour(1.0F, 1.0F, 1.0F);
+            colour.setRed(1.1F);
+        });
+    }
 }
