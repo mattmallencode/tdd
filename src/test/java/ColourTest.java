@@ -36,4 +36,12 @@ class ColourTest {
         });
         Assertions.assertEquals("RGB param in hex must be 6 chars long!", exception.getMessage());
     }
+
+    @Test
+    void testInvalidHexException() {
+        Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Colour hexColourNot6Chars = new Colour("/");
+        });
+        Assertions.assertEquals("That is not valid hex! Hex characters are 0-9 (inclusive) A-F (UPPER inclusive)", exception.getMessage());
+    }
 }
