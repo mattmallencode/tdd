@@ -16,4 +16,11 @@ class ColourTest {
         });
         Assertions.assertEquals("RGB params must all be below 1.0F", exception.getMessage());
     }
+
+    @Test
+    void testParamLowerRangeException() {
+        Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+           Colour colour = new Colour(-0.1F, 0.0F, 0.0F);
+        });
+    }
 }
