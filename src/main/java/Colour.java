@@ -39,24 +39,31 @@ public class Colour {
     }
 
     public void setRed(float r) {
-        if (r > 1.0F) {
+        if (!validateRGBBeforeSet(r)) {
             throw new IllegalArgumentException();
         }
         this.red = r;
     }
 
     public void setGreen(float g) {
-        if (g > 1.0F) {
+        if (!validateRGBBeforeSet(g)) {
             throw  new IllegalArgumentException();
         }
         this.green = g;
     }
 
     public void setBlue(float b) {
-        if (b > 1.0F) {
+        if (!validateRGBBeforeSet(b)) {
             throw new IllegalArgumentException();
         }
         this.blue = b;
+    }
+
+    public boolean validateRGBBeforeSet(float rgbValue) {
+        if (rgbValue > 1.0F) {
+            return false;
+        }
+        return true;
     }
 
     /**
