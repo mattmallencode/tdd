@@ -6,7 +6,7 @@ class ColourTest {
      * Test method that checks that an IllegalArgumentException is raised when any of the rgb params are greater than 1.0F.
      */
     @Test
-    void testParamUpperRangeException() {
+    void test3ParamUpperRangeException() {
         Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             Colour colourWithRedGreaterThanOne = new Colour(1.1F, 1.0F, 1.0F);
         });
@@ -17,7 +17,7 @@ class ColourTest {
      * Test method that checks that an IllegalArgumentException is raised when any of the rgb params are less than 1.0F.
      */
     @Test
-    void testParamLowerRangeException() {
+    void test3ParamLowerRangeException() {
         Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
            Colour colourWithRedLessThanZero = new Colour(-0.1F, 0.0F, 0.0F);
         });
