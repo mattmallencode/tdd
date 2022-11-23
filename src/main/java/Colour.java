@@ -4,6 +4,12 @@ public class Colour {
     float green;
     float blue;
 
+    /**
+     * Constructor for a representation of colour.
+     * @param red - the amount of red in the colour from 0.0F to 1.0F inclusive.
+     * @param green - the amount of green in the colour from 0.0F to 1.0F inclusive.
+     * @param blue - the amount of blue in the colour from 0.0F to 1.0F inclusive.
+     */
     public Colour(float red, float green, float blue) {
         this.red = red;
         this.green = green;
