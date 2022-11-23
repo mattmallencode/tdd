@@ -23,6 +23,8 @@ public class Colour {
     }
 
     public Colour(String rgbInHex) {
-
+        if (rgbInHex.length() < 6) {
+            throw new IllegalArgumentException();
+        }
     }
 }
