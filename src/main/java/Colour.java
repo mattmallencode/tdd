@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.List;
+
 public class Colour {
 
     private float red;
@@ -24,6 +27,15 @@ public class Colour {
 
     public Colour(String rgbInHex) {
         validateRGBHex(rgbInHex);
+        List<String> rgbValues = Arrays.asList(rgbInHex.split("(?<=\\G.{2})")); // Borrowed from: https://stackoverflow.com/questions/4788596/split-string-into-several-two-character-strings
+        Long redInteger = Long.parseLong(rgbValues.get(0), 16);
+        Long greenInteger = Long.parseLong(rgbValues.get(1), 16);
+        Long blueInteger = Long.parseLong(rgbValues.get(2), 16);
+        this.red = (float) (redInteger.intValue()) / 255.0F;
+        this.green = (float) (greenInteger.intValue() / 255.0F);
+        this.blue = (float) (blueInteger.intValue()) / 255.0F;
+
+
     }
 
     public float getRed() {
