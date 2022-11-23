@@ -34,5 +34,6 @@ class ColourTest {
         Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             Colour hexColourNot6Chars = new Colour("FF");
         });
+        Assertions.assertEquals("RGB param in hex must be 6 chars long!", exception.getMessage());
     }
 }
