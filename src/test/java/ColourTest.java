@@ -88,4 +88,20 @@ class ColourTest {
             colour.setBlue(1.1F);
         });
     }
+
+    @Test
+    void testSettersLowerLimit() {
+        Exception floatTooSmallExceptionRed = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Colour colour = new Colour(1.0F, 1.0F, 1.0F);
+            colour.setRed(-0.1F);
+        });
+        Exception floatTooSmallExceptionGreen = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Colour colour = new Colour(1.0F, 1.0F, 1.0F);
+            colour.setGreen(-0.1F);
+        });
+        Exception floatTooSmallExceptionBlue = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Colour colour = new Colour(1.0F, 1.0F, 1.0F);
+            colour.setBlue(-0.1F);
+        });
+    }
 }
