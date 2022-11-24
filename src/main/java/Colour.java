@@ -73,6 +73,11 @@ public class Colour {
         this.blue = b;
     }
 
+    public void setRGB(String rgbInHex) {
+        validateRGBHex(rgbInHex);
+        parseRGBHexString(rgbInHex);
+    }
+
     public boolean validateRGBBeforeSet(float rgbValue) {
         if (rgbValue > 1.0F || rgbValue < 0.0F) {
             return false;
