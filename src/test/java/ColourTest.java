@@ -71,6 +71,9 @@ class ColourTest {
         Colour secondColour = new Colour("FFFFFF");
         Assertions.assertEquals(firstColour, secondColour);
         secondColour.setRed(0.8F);
+        secondColour.setBlue(secondColour.getRed());
+        secondColour.setGreen(secondColour.getBlue());
+        firstColour.setGreen(secondColour.getGreen());
         Assertions.assertNotEquals(firstColour, secondColour);
     }
 
@@ -84,9 +87,13 @@ class ColourTest {
 
     @Test
     void testSettersLowerLimit() {
-        Exception floatTooSmallExceptionRed = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+        Exception floatTooSmallExceptionGreen = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             Colour colour = new Colour(1.0F, 1.0F, 1.0F);
-            colour.setRed(-0.1F);
+            colour.setGreen(-0.1F);
+        });
+        Exception floatTooSmallExceptionBlue = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Colour colour = new Colour(1.0F, 1.0F, 1.0F);
+            colour.setBlue(-0.1F);
         });
     }
 }
