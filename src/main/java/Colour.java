@@ -35,9 +35,9 @@ public class Colour {
         Long redInteger = Long.parseLong(rgbValues.get(0), 16);
         Long greenInteger = Long.parseLong(rgbValues.get(1), 16);
         Long blueInteger = Long.parseLong(rgbValues.get(2), 16);
-        this.red = (float) (redInteger.intValue()) / 255.0F;
-        this.green = (float) (greenInteger.intValue() / 255.0F);
-        this.blue = (float) (blueInteger.intValue()) / 255.0F;
+        this.setRed((float) (redInteger.intValue()) / 255.0F);
+        this.setGreen((float) (greenInteger.intValue() / 255.0F));
+        this.setBlue((float) (blueInteger.intValue()) / 255.0F);
     }
 
     public float getRed() {
