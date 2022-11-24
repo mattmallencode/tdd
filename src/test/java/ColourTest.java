@@ -8,7 +8,7 @@ class ColourTest {
      * Test method that checks that an IllegalArgumentException is raised when any of the rgb params for the 3 param constructor are greater than 1.0F.
      */
     @Test
-    void testUpperFloatValidation() {
+    void testUpperFloatLimit() {
         Exception floatTooLargeException = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             Colour colourWithRedGreaterThanOne = new Colour(1.1F, 1.0F, 1.0F);
         });
@@ -19,7 +19,7 @@ class ColourTest {
      * Test method that checks that an IllegalArgumentException is raised when any of the rgb params for the 3 param constructor are less than 1.0F.
      */
     @Test
-    void testLowerFloatValidation() {
+    void testLowerFloatLimit() {
         Exception tooLowFloatException = Assertions.assertThrows(IllegalArgumentException.class, () -> {
            Colour colourWithRedLessThanZero = new Colour(-0.1F, 0.0F, 0.0F);
         });
@@ -30,7 +30,7 @@ class ColourTest {
      * Test method that checks that if a string passed to the single param constructor isn't of length 6, an exception is raised.
      */
     @Test
-    void testHexLengthValidation() {
+    void testHexLengthLimit() {
         Exception invalidHexLengthException = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             Colour hexColourNot6Chars = new Colour("FF");
         });
@@ -65,6 +65,9 @@ class ColourTest {
         }
     }
 
+    /**
+     *  Test method that checks that the @Override for .equals() is working correctly for Colour i.e. colours with equal params return true.
+     */
     @Test
     void testColourComparison() {
         Colour firstColour = new Colour(1.0F, 1.0F, 1.0F);
@@ -77,6 +80,9 @@ class ColourTest {
         Assertions.assertNotEquals(firstColour, secondColour);
     }
 
+    /**
+     * Test method that checks that the rgb param setters throw exceptions if the new value is greater than 1.0F.
+     */
     @Test
     void testSettersUpperLimit() {
         Exception floatTooLargeException = Assertions.assertThrows(IllegalArgumentException.class, () -> {
@@ -85,6 +91,9 @@ class ColourTest {
         });
     }
 
+    /**
+     * Test method that checks that the rgb param setters throw exceptions if the new value is less than 0.0F.
+     */
     @Test
     void testSettersLowerLimit() {
         Exception floatTooSmallExceptionGreen = Assertions.assertThrows(IllegalArgumentException.class, () -> {
