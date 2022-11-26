@@ -61,7 +61,7 @@ public class Colour {
 
     public void setGreen(float g) {
         if (!validateRGBBeforeSet(g)) {
-            throw  new IllegalArgumentException();
+            throw  new IllegalArgumentException("RGB params must all be equal to or less than 1.0F");
         }
         this.green = g;
     }
