@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 class ColourTest {
-    /**
+    /**3
      * Test method that checks that an IllegalArgumentException is raised when any of the rgb params for the 3 param constructor are greater than 1.0F.
      */
     @Test
@@ -74,9 +74,9 @@ class ColourTest {
         Colour secondColour = new Colour("FFFFFF");
         Assertions.assertEquals(firstColour, secondColour);
         secondColour.setRGB("AAAAAA");
-        System.out.println(secondColour.getRed());
-        System.out.println(secondColour.getGreen());
-        System.out.println(secondColour.getBlue());
+        System.out.println(secondColour.getRed()); // Should be 0.6666667
+        System.out.println(secondColour.getGreen()); // Should be 0.6666667
+        System.out.println(secondColour.getBlue()); // Should be 0.6666667
         Assertions.assertNotEquals(firstColour, secondColour);
     }
 
@@ -89,6 +89,7 @@ class ColourTest {
             Colour colour = new Colour(1.0F, 1.0F, 1.0F);
             colour.setRed(1.1F);
         });
+        Assertions.assertEquals("RGB params must all be equal to or less than 1.0F", floatTooLargeException.getMessage());
     }
 
     /**
