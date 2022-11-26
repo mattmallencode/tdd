@@ -106,5 +106,6 @@ class ColourTest {
             Colour colour = new Colour(1.0F, 1.0F, 1.0F);
             colour.setBlue(-0.1F);
         });
+        Assertions.assertEquals("RGB params must all be equal to or less than 1.0F", floatTooSmallExceptionBlue.getMessage());
     }
 }
