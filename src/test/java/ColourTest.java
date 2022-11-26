@@ -101,6 +101,7 @@ class ColourTest {
             Colour colour = new Colour(1.0F, 1.0F, 1.0F);
             colour.setGreen(-0.1F);
         });
+        Assertions.assertEquals("RGB params must all be equal to or less than 1.0F", floatTooLargeException.getMessage());
         Exception floatTooSmallExceptionBlue = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             Colour colour = new Colour(1.0F, 1.0F, 1.0F);
             colour.setBlue(-0.1F);
