@@ -35,9 +35,9 @@ public class Colour {
      */
     public void parseRGBHexThenSet(String rgbInHex) {
         List<String> rgbValues = Arrays.asList(rgbInHex.split("(?<=\\G.{2})")); // Borrowed from: https://stackoverflow.com/questions/4788596/split-string-into-several-two-character-strings
-        Long redInteger = Long.parseLong(rgbValues.get(0), 16);
+        Long redInteger = Long.parseLong(rgbValues.get(2), 16);
         Long greenInteger = Long.parseLong(rgbValues.get(1), 16);
-        Long blueInteger = Long.parseLong(rgbValues.get(2), 16);
+        Long blueInteger = Long.parseLong(rgbValues.get(0), 16);
         this.setRed((float) (redInteger.intValue()) / 255.0F);
         this.setGreen((float) (greenInteger.intValue() / 255.0F));
         this.setBlue((float) (blueInteger.intValue()) / 255.0F);
